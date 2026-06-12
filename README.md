@@ -8,7 +8,7 @@ A correct, well-documented MATLAB simulation of FMCW (Frequency-Modulated Contin
 
 FMCW radar transmits a continuous wave whose frequency linearly increases with time. Each frequency sweep is called a *chirp*:
 
-$$s_{tx}(t) = \exp\left\{j2\pi\left[f_c t + \frac{1}{2}S\tau^2\right]\right\}$$
+$$s_{tx}(t) = \exp\{j2\pi[f_c t + \frac{1}{2}S\tau^2]\}$$
 
 where $f_c$ is the carrier frequency, $S = B/T_{chirp}$ is the slope (sweep rate), $\tau = t \bmod T_{chirp}$ is the fast time within a chirp, and $T_{chirp}$ is the chirp duration.
 
@@ -25,11 +25,11 @@ Signal processing is organized on a 2D grid:
 
 The received signal from a target at delay $\tau_k = 2R_k/c$ is:
 
-$$s_{rx}(t) = \exp\left\{j2\pi\left[f_c(t-\tau_k) + \frac{1}{2}S(\tau-\tau_k)^2\right]\right\}, \quad \tau \ge \tau_k$$
+$$s_{rx}(t) = \exp\{j2\pi[f_c(t-\tau_k) + \frac{1}{2}S(\tau-\tau_k)^2]\}, \quad \tau \ge \tau_k$$
 
 Mixing (multiplying TX by conjugate of RX) removes the carrier and chirp, leaving the beat signal:
 
-$$s_{if} = s_{tx} \cdot s_{rx}^* = \exp\left\{j2\pi\left[\underbrace{f_c\tau_k}_{\text{carrier phase}} + \underbrace{S\tau\tau_k}_{\text{beat frequency}} - \underbrace{\frac{1}{2}S\tau_k^2}_{\text{RVP}}\right]\right\}$$
+$$s_{if} = s_{tx} \cdot s_{rx}^* = \exp\{j2\pi[\underbrace{f_c\tau_k}_{\text{carrier phase}} + \underbrace{S\tau\tau_k}_{\text{beat frequency}} - \underbrace{\frac{1}{2}S\tau_k^2}_{\text{RVP}}]\}$$
 
 The beat frequency $f_{if} = S \cdot \tau_k = \frac{B}{T_{chirp}} \cdot \frac{2R}{c}$ is proportional to range. A 1D FFT along fast time extracts the range.
 

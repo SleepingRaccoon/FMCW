@@ -8,7 +8,7 @@
 
 FMCW 雷达发射频率随时间线性上升的连续波信号。每一次频率扫描称为一个 chirp（线性调频脉冲）：
 
-$$s_{tx}(t) = \exp\left\{j2\pi\left[f_c t + \frac{1}{2}S\tau^2\right]\right\}$$
+$$s_{tx}(t) = \exp\{j2\pi[f_c t + \frac{1}{2}S\tau^2]\}$$
 
 其中 $f_c$ 为载频，$S = B/T_{chirp}$ 为调频斜率，$\tau = t \bmod T_{chirp}$ 为 chirp 内的快时间，$T_{chirp}$ 为 chirp 时长。
 
@@ -25,11 +25,11 @@ $$s_{tx}(t) = \exp\left\{j2\pi\left[f_c t + \frac{1}{2}S\tau^2\right]\right\}$$
 
 时延为 $\tau_k = 2R_k/c$ 的目标，其接收信号为：
 
-$$s_{rx}(t) = \exp\left\{j2\pi\left[f_c(t-\tau_k) + \frac{1}{2}S(\tau-\tau_k)^2\right]\right\}, \quad \tau \ge \tau_k$$
+$$s_{rx}(t) = \exp\{j2\pi[f_c(t-\tau_k) + \frac{1}{2}S(\tau-\tau_k)^2]\}, \quad \tau \ge \tau_k$$
 
 发射与接收共轭相乘（复混频），去掉载波和 chirp 二次项，得到差频信号：
 
-$$s_{if} = s_{tx} \cdot s_{rx}^* = \exp\left\{j2\pi\left[\underbrace{f_c\tau_k}_{\text{载波相位}} + \underbrace{S\tau\tau_k}_{\text{差频项}} - \underbrace{\frac{1}{2}S\tau_k^2}_{\text{RVP}}\right]\right\}$$
+$$s_{if} = s_{tx} \cdot s_{rx}^* = \exp\{j2\pi[\underbrace{f_c\tau_k}_{\text{载波相位}} + \underbrace{S\tau\tau_k}_{\text{差频项}} - \underbrace{\frac{1}{2}S\tau_k^2}_{\text{RVP}}]\}$$
 
 差频频率 $f_{if} = S \cdot \tau_k = \dfrac{B}{T_{chirp}} \cdot \dfrac{2R}{c}$ 与距离成正比。沿快时间做 FFT 即可提取距离。
 
