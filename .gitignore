@@ -1,0 +1,20 @@
+# MATLAB
+*.m~          # Auto-save files
+*.asv         # Auto-save files
+*.mat         # Data files
+slprj/        # Simulink project files
+*.slxc        # Simulink cache
+
+# Figures
+*.fig         # MATLAB figure files
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor
+.vscode/
+.idea/
